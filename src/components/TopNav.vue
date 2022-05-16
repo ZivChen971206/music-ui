@@ -15,26 +15,26 @@
     </div>
 </template>
 
-<script>
+<script lang="ts">
 export default {
     name: 'TopNav',
 };
 </script>
 
-<style scoped lang="less">
+<style lang="less" scoped>
 .topNav {
-    width: 7.5rem;
-    height: 0.8rem;
+    width: 1200px;
+    height: 60px;
     display: flex;
     justify-content: space-between;
     align-items: center;
-    padding: 0 0.2rem;
+    margin: 20px auto;
     .topCenter {
-        width: 4.5rem;
+        width: 100%;
         display: flex;
         justify-content: space-around;
-        .active{
-          font-weight: 900;
+        .active {
+            font-weight: 900;
         }
     }
 }

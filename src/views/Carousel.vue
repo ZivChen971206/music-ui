@@ -17,17 +17,17 @@
     </div>
 </template>
 
-<script lang="ts">
-import { Options, Vue } from 'vue-class-component';
-import TopNav from '@/components/TopNav.vue'; // @ is an alias to /src
+<script>
+import TopNav from '@/components/TopNav.vue';
 
-@Options({
+export default {
+    name: 'Home',
     components: {
         TopNav,
     },
-})
-export default class Home extends Vue {}
+};
 </script>
+
 <style lang="less" scoped>
 .home {
     &__header {
