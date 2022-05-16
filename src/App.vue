@@ -4,12 +4,9 @@
 
 <style lang="less">
 * {
-    margin: 0;
-    padding: 0;
-    box-sizing: border-box;
-    font-family: '微软雅黑';
+    font-size: 20px;
 }
 .iconfont {
-    font-size: 16px;
+    font-size: 28px;
 }
 </style>

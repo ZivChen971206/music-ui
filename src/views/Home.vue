@@ -3,13 +3,8 @@
         <el-container>
             <el-header class="home__header">
                 <top-nav></top-nav>
-                <div class="home__header__carousel">
-                    <el-carousel>
-                        <el-carousel-item v-for="item in 4" :key="item">
-                            <h3 class="small justify-center" text="2xl">{{ item }}</h3>
-                        </el-carousel-item>
-                    </el-carousel>
-                </div>
+                <banner></banner>
+                <icon-list></icon-list>
             </el-header>
             <el-main>Main</el-main>
             <el-footer>Footer</el-footer>
@@ -18,24 +13,25 @@
 </template>
 
 <script lang="ts">
-import { Options, Vue } from 'vue-class-component';
-import TopNav from '@/components/TopNav.vue'; // @ is an alias to /src
+import { defineComponent } from 'vue';
+import TopNav from '@/components/TopNav.vue';
+import Banner from '@/components/Banner.vue';
+import IconList from '@/components/IconList.vue';
 
-@Options({
+export default defineComponent({
+    name: 'Home',
     components: {
         TopNav,
+        Banner,
+        IconList,
     },
-})
-export default class Home extends Vue {}
+});
 </script>
 <style lang="less" scoped>
 .home {
     &__header {
         min-width: 1200px;
-        height: 500px;
-        &__carousel {
-            width: 100%;
-        }
+        height: 1000px;
     }
 }
 </style>

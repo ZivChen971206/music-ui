@@ -1,23 +1,42 @@
 <template>
     <div class="topNav">
         <div class="topLeft">
-            <i class="iconfont icon-liebiao"></i>
+            <el-icon class="topIcon"><List /></el-icon>
         </div>
         <div class="topCenter">
-            <span class="navBtn">我的</span>
-            <span class="navBtn">发现</span>
-            <span class="navBtn">云村</span>
-            <span class="navBtn">视频</span>
+            <el-menu
+                :default-active="find"
+                class="topCenter-menu"
+                mode="horizontal"
+                @select="handleSelect"
+            >
+                <el-menu-item index="my">我的</el-menu-item>
+                <el-menu-item index="find">发现</el-menu-item>
+                <el-menu-item index="village">云村</el-menu-item>
+                <el-menu-item index="video">视频</el-menu-item>
+            </el-menu>
         </div>
         <div class="topRight">
-            <i class="iconfont icon-sousuo"></i>
+            <el-icon class="topIcon"><Search /></el-icon>
         </div>
     </div>
 </template>
 
 <script lang="ts">
+import { ref } from 'vue';
 export default {
     name: 'TopNav',
+    setup() {
+        const my = ref('my');
+        const find = ref('find');
+        const village = ref('village');
+        const video = ref('video');
+        const handleSelect = (key: string, keyPath: string[]) => {
+            console.log(key, keyPath);
+        };
+
+        return { my, find, village, video, handleSelect };
+    },
 };
 </script>
 
@@ -29,13 +48,28 @@ export default {
     justify-content: space-between;
     align-items: center;
     margin: 20px auto;
+    .topIcon {
+        font-size: 28px;
+    }
+    .topLeft {
+        width: 100px;
+        display: flex;
+        justify-content: center;
+    }
     .topCenter {
         width: 100%;
-        display: flex;
-        justify-content: space-around;
         .active {
             font-weight: 900;
         }
+    }
+    .topRight {
+        width: 100px;
+        display: flex;
+        justify-content: center;
+    }
+    .el-menu--horizontal > .el-menu-item {
+        width: 25%;
+        font-size: 20px;
     }
 }
 </style>
